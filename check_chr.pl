@@ -27,13 +27,14 @@ foreach my $el (@array1){
 
 	my @line = (split /\t/, $el);
 
-	if ($line[0] =~ /^chr/ ){
-		print $line[0];
-		print OUTPUT "$el\n";
 
-	}
+	if ($line[0] =~ /^chr/ || $line[0] =~/[a-zA-Z]/ && $line[0] =~/[\d]/)
+
+	{print OUTPUT "$el\n";}
+
 	else {print OUTPUT "chr$el\n";}
 
 }
 
 close OUTPUT;
+
